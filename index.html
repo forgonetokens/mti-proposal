@@ -1055,6 +1055,20 @@
        ===================================================== */
 
     @media screen and (max-width: 768px) {
+      /* Push content to top on mobile (except title slide) */
+      .reveal .slides section:not(.title-slide) {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+      }
+
+      .reveal .slides section:not(.title-slide) h2:first-child {
+        margin-top: 0 !important;
+      }
+
       .reveal .columns {
         flex-direction: column;
         gap: var(--space-sm);
