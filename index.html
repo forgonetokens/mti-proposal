@@ -476,7 +476,7 @@
     .reveal .step {
       display: flex;
       gap: var(--space-sm);
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: var(--space-sm);
       text-align: left;
     }
@@ -1107,6 +1107,12 @@
         width: 28px;
         height: 28px;
         font-size: 0.7em;
+        flex-shrink: 0;
+      }
+
+      /* Deliverables list padding on mobile */
+      .highlight-box ul {
+        padding-left: 20px;
       }
 
       .modal-content {
