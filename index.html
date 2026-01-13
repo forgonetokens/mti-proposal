@@ -1054,30 +1054,9 @@
        SLIDE VERTICAL ALIGNMENT
        ===================================================== */
 
-    /* Force slides container to align to top */
-    .reveal .slides {
-      top: 0 !important;
-      transform: none !important;
-    }
-
-    /* Push content to top (except title slide) */
+    /* Shift non-title slides up within the viewport */
     .reveal .slides section:not(.title-slide) {
-      padding-top: 10px !important;
-      margin-top: 0 !important;
-      top: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: flex-start !important;
-      align-items: stretch !important;
-    }
-
-    .reveal .slides section:not(.title-slide) h2:first-child {
-      margin-top: 0 !important;
-    }
-
-    /* Keep title slide centered */
-    .reveal .slides section.title-slide {
-      justify-content: center !important;
+      top: -50px !important;
     }
 
     /* =====================================================
