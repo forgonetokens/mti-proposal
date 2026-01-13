@@ -1069,16 +1069,21 @@
         gap: var(--space-sm);
       }
 
-      /* Slide 2, 3, 7 - larger font on mobile */
-      .reveal .slides section:nth-child(2) ul,
-      .reveal .slides section:nth-child(3) ul,
-      .reveal .slides section:nth-child(7) ul {
-        font-size: 0.7em !important;
+      /* Minimum font size on mobile - 0.65em baseline */
+      .reveal .slides section p,
+      .reveal .slides section li,
+      .reveal .slides section .card p,
+      .reveal .slides section .highlight-box p {
+        font-size: 0.65em !important;
       }
 
-      .reveal .slides section:nth-child(3) p,
-      .reveal .slides section:nth-child(7) p {
+      .reveal .slides section ul,
+      .reveal .slides section ol {
         font-size: 0.65em !important;
+      }
+
+      .reveal .slides section h4 {
+        font-size: 0.7em !important;
       }
 
       /* Timeline adjustments for mobile */
