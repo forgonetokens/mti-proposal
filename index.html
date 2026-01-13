@@ -1054,6 +1054,28 @@
        RESPONSIVE STYLES
        ===================================================== */
 
+    /* Desktop - ensure legible font sizes */
+    @media screen and (min-width: 769px) {
+      .reveal .slides section p,
+      .reveal .slides section .card p,
+      .reveal .slides section .highlight-box p {
+        font-size: 0.65em !important;
+      }
+
+      .reveal .slides section ul,
+      .reveal .slides section ol {
+        font-size: 0.7em !important;
+      }
+
+      .reveal .slides section li {
+        font-size: 1em !important;
+      }
+
+      .reveal .slides section h4 {
+        font-size: 0.75em !important;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       /* Shift non-title slides up on mobile */
       .reveal .slides section:not(.title-slide) {
