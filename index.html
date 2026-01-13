@@ -1073,7 +1073,9 @@
       .reveal .slides section p,
       .reveal .slides section li,
       .reveal .slides section .card p,
-      .reveal .slides section .highlight-box p {
+      .reveal .slides section .highlight-box p,
+      .reveal .slides section .pain-point,
+      .reveal .slides section .timeline-content p {
         font-size: 0.65em !important;
       }
 
@@ -1082,21 +1084,29 @@
         font-size: 0.65em !important;
       }
 
-      .reveal .slides section h4 {
+      .reveal .slides section h4,
+      .reveal .slides section .timeline-content h4 {
         font-size: 0.7em !important;
       }
 
       /* Timeline adjustments for mobile */
       .timeline {
-        margin-left: 70px;
-        padding-left: 20px;
+        margin-left: 60px;
+        padding-left: 16px;
       }
 
       .timeline-badge {
-        min-width: 60px;
-        font-size: 0.45em;
-        padding: 5px 8px;
-        right: calc(100% + 24px);
+        min-width: 50px;
+        font-size: 0.55em;
+        padding: 4px 6px;
+        right: calc(100% + 20px);
+      }
+
+      /* Step numbers smaller on mobile */
+      .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7em;
       }
 
       .modal-content {
@@ -1191,11 +1201,10 @@
           </div>
           <div class="column">
             <div class="highlight-box">
-              <h4>This Isn't About Reinventing How We Operate</h4>
-              <p>This is surgical process improvement at specific friction points where members and staff lose time.</p>
-              <p style="margin-top: var(--space-sm);">Small, targeted fixes create outsized impact on member experience and officer workload.</p>
+              <h4>Surgical Process Improvement</h4>
+              <p>Small, targeted fixes at friction points create outsized impact on member experience.</p>
             </div>
-            <div class="card" style="margin-top: var(--space-md);">
+            <div class="card" style="margin-top: var(--space-sm);">
               <p style="font-style: italic;">"Accessing what members have earned should feel simple and dignified."</p>
             </div>
           </div>
@@ -1205,16 +1214,16 @@
       <!-- Slide 5: Proof of Concept -->
       <section>
         <h2>Proof of Concept <span class="badge-accent" style="font-size: 0.5em; vertical-align: middle; margin-left: 10px;">Already Built</span></h2>
-        <p>The MRP Claimer helps members draft, combine receipts, and submit claims to receive copay reimbursement.</p>
+        <p style="font-size: 0.6em;">MRP Claimer: draft claims, combine receipts, submit for copay reimbursement.</p>
         <div class="columns">
           <div class="column">
             <p class="label">Before</p>
             <div class="pain-point">
-              Print the form, fill by hand, scan it back. Tedious enough that some members didn't bother.
+              Print, fill by hand, scan. Tedious enough that some skipped it.
             </div>
             <p class="label">After</p>
             <div class="card border-top">
-              <p>One web form, attach receipts, submit. Save your profile to skip repetitive entry next time.</p>
+              <p>One web form, attach receipts, submit. Save profile for next time.</p>
             </div>
           </div>
           <div class="column" style="display: flex; align-items: center; justify-content: center;">
@@ -1236,21 +1245,21 @@
             <p class="label">Pilot Budget</p>
             <div class="rate-box primary">
               <p class="rate">Up to $500</p>
-              <p style="font-size: 0.7em;">Billed at $39.28/hr (E-Board stipend rate)</p>
+              <p style="font-size: 0.6em;">$39.28/hr (E-Board stipend rate)</p>
             </div>
             <div class="card" style="border-left: 4px solid var(--accent);">
-              <p style="font-size: 1.1em; font-weight: bold; color: var(--primary);">60–75% below market</p>
-              <p>Developers charge $100–175/hr for this work.</p>
+              <p style="font-size: 1em; font-weight: bold; color: var(--primary);">60–75% below market</p>
+              <p style="font-size: 0.55em;">Developers charge $100–175/hr.</p>
             </div>
           </div>
           <div class="column">
             <p class="label">For Comparison</p>
             <div class="card">
-              <h4>Off-the-Shelf Union Software</h4>
-              <p>UnionTrack, UnionWare: $2–5 per member/month. For 1,200 members, that's $29K–72K/year plus fees.</p>
+              <h4 style="font-size: 0.6em;">Off-the-Shelf Union Software</h4>
+              <p style="font-size: 0.55em;">$2–5/member/month = $29K–72K/year for 1,200 members.</p>
             </div>
-            <div style="background: var(--accent); padding: 12px; border-radius: 8px;">
-              <p style="margin: 0; font-weight: bold; color: var(--primary);">This approach: no recurring vendor fees.</p>
+            <div style="background: var(--accent); padding: 10px; border-radius: 8px;">
+              <p style="margin: 0; font-weight: bold; color: var(--primary); font-size: 0.6em;">This approach: no recurring vendor fees.</p>
             </div>
           </div>
         </div>
@@ -1352,17 +1361,17 @@
           </div>
           <div class="column">
             <div class="highlight-box" style="padding: var(--space-sm);">
-              <h4 style="font-size: 0.55em;">Pilot Deliverables</h4>
+              <h4 style="font-size: 0.6em;">Deliverables</h4>
               <ol style="padding-left: 16px; margin: 4px 0 0 0;">
-                <li style="color: rgba(255,255,255,0.9); font-size: 0.45em; margin-bottom: 3px;">Deploy MRP Claimer to membership</li>
-                <li style="color: rgba(255,255,255,0.9); font-size: 0.45em; margin-bottom: 3px;">Create prioritized list of next tools</li>
-                <li style="color: rgba(255,255,255,0.9); font-size: 0.45em; margin-bottom: 3px;">Build and launch the next tool</li>
-                <li style="color: rgba(255,255,255,0.9); font-size: 0.45em;">Prepare proposal for continuing/expanding</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.55em; margin-bottom: 2px;">Deploy MRP Claimer</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.55em; margin-bottom: 2px;">Prioritize next tools</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.55em; margin-bottom: 2px;">Build next tool</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.55em;">Prepare continuation proposal</li>
               </ol>
             </div>
             <div class="card" style="border-top: none; margin-top: 8px; padding: var(--space-sm);">
-              <h4 style="font-size: 0.55em;">Pilot Cost</h4>
-              <p style="font-size: 0.5em;">Up to <strong>$500</strong> total (~12 hours at $39.28/hr). Covers deployment, development, and training.</p>
+              <h4 style="font-size: 0.6em;">Pilot Cost</h4>
+              <p style="font-size: 0.55em;">Up to <strong>$500</strong> (~12 hrs at $39.28/hr)</p>
             </div>
           </div>
         </div>
@@ -1371,25 +1380,25 @@
       <!-- Slide 10: IP Terms -->
       <section>
         <h2>Ownership</h2>
-        <p style="color: var(--muted);">In exchange for the reduced rate, I retain IP ownership. Here's what that means:</p>
+        <p style="color: var(--muted); font-size: 0.6em;">Reduced rate = I retain IP. Here's the arrangement:</p>
         <div class="columns">
           <div class="column">
             <div class="terms-column primary">
-              <h4>What Local 478 Gets</h4>
-              <ul>
-                <li><strong>Perpetual, royalty-free license</strong> to use, modify, and maintain the software.</li>
-                <li>License is <strong>irrevocable</strong> regardless of my board status.</li>
-                <li><strong>15% of licensing revenue</strong> if sold to other locals.</li>
+              <h4 style="font-size: 0.65em;">What Local 478 Gets</h4>
+              <ul style="font-size: 0.55em;">
+                <li><strong>Perpetual, royalty-free license</strong> to use and modify</li>
+                <li><strong>Irrevocable</strong> regardless of my board status</li>
+                <li><strong>15% of revenue</strong> if licensed to other locals</li>
               </ul>
             </div>
           </div>
           <div class="column">
             <div class="terms-column">
-              <h4>What I Retain</h4>
-              <ul>
-                <li><strong>Ownership</strong> of IP and source code.</li>
-                <li><strong>Right to license</strong> to other IATSE locals or orgs.</li>
-                <li><strong>85% of licensing revenue</strong> from third parties.</li>
+              <h4 style="font-size: 0.65em;">What I Retain</h4>
+              <ul style="font-size: 0.55em;">
+                <li><strong>Ownership</strong> of IP and source code</li>
+                <li><strong>Right to license</strong> to other IATSE locals</li>
+                <li><strong>85% of revenue</strong> from third parties</li>
               </ul>
             </div>
           </div>
@@ -1418,31 +1427,31 @@
             <div class="step">
               <span class="step-number">1</span>
               <div>
-                <p style="margin: 0; font-weight: bold;">Board Discussion</p>
-                <p style="margin: 4px 0 0 0; font-size: 0.6em; color: var(--muted);">Review this proposal and ask any questions. I'm happy to negotiate terms if needed.</p>
+                <p style="margin: 0; font-weight: bold; font-size: 0.65em;">Board Discussion</p>
+                <p style="margin: 2px 0 0 0; font-size: 0.55em; color: var(--muted);">Review proposal, ask questions.</p>
               </div>
             </div>
             <div class="step">
               <span class="step-number" style="background: var(--secondary); color: var(--primary);">2</span>
               <div>
-                <p style="margin: 0; font-weight: bold;">Approve Pilot</p>
-                <p style="margin: 4px 0 0 0; font-size: 0.6em; color: var(--muted);">If the board approves, we formalize the agreement with a $500 cap. No further commitment is required.</p>
+                <p style="margin: 0; font-weight: bold; font-size: 0.65em;">Approve Pilot</p>
+                <p style="margin: 2px 0 0 0; font-size: 0.55em; color: var(--muted);">Formalize agreement, $500 cap.</p>
               </div>
             </div>
             <div class="step">
               <span class="step-number" style="background: var(--secondary); color: var(--primary);">3</span>
               <div>
-                <p style="margin: 0; font-weight: bold;">Deploy & Train</p>
-                <p style="margin: 4px 0 0 0; font-size: 0.6em; color: var(--muted);">I roll out the existing tools, train officers, and start gathering member feedback.</p>
+                <p style="margin: 0; font-weight: bold; font-size: 0.65em;">Deploy & Train</p>
+                <p style="margin: 2px 0 0 0; font-size: 0.55em; color: var(--muted);">Roll out tools, gather feedback.</p>
               </div>
             </div>
           </div>
           <div class="column">
             <div class="highlight-box">
-              <h4 style="font-size: 0.7em;">Summary of the Ask</h4>
-              <p><strong>Role:</strong> Part-time Digital Services Coordinator (10 hrs/week)</p>
-              <p><strong>Rate:</strong> $39.28 per hour, based on the E-Board stipend for services</p>
-              <p><strong>Pilot:</strong> Up to $500 total to deploy the tools I've already built</p>
+              <h4 style="font-size: 0.65em;">Summary of the Ask</h4>
+              <p style="font-size: 0.55em;"><strong>Role:</strong> Part-time Digital Services Coordinator</p>
+              <p style="font-size: 0.55em;"><strong>Rate:</strong> $39.28/hr (E-Board stipend)</p>
+              <p style="font-size: 0.55em;"><strong>Pilot:</strong> Up to $500 total</p>
             </div>
           </div>
         </div>
