@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local 478 Digital Services Pilot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/simple.min.css">
+  <style>
+    /* =====================================================
+       DESIGN SYSTEM - Local 478 Digital Services Pilot
+       ===================================================== */
+
+    /* --- Color Palette --- */
+    :root {
+      /* Primary colors */
+      --primary: #1e3a5f;      /* Navy - main brand color */
+      --accent: #d4a84b;       /* Gold - highlights & CTAs */
+      --secondary: #e8eef4;    /* Light blue-gray - cards & backgrounds */
+
+      /* Text colors */
+      --text-dark: #1e3a5f;    /* Text on light backgrounds */
+      --text-light: #ffffff;   /* Text on dark backgrounds */
+      --text-muted: #5a6978;   /* Secondary/muted text on light */
+      --text-muted-dark: rgba(255,255,255,0.7); /* Muted text on dark */
+
+      /* Spacing scale */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 15px;
+      --space-lg: 20px;
+      --space-xl: 40px;
+
+      /* Typography scale */
+      --font-h1: 1.6em;
+      --font-h2: 1.4em;
+      --font-h3: 0.9em;
+      --font-h4: 0.7em;
+      --font-body: 0.65em;
+      --font-small: 0.55em;
+      --font-label: 0.5em;
+    }
+
+    /* --- Base Styles --- */
+    .reveal {
+      font-family: Arial, sans-serif;
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      top: 0 !important;
+      padding: 30px var(--space-xl);
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    /* --- Typography --- */
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: Georgia, serif;
+      color: var(--text-dark);
+      text-transform: none;
+    }
+
+    .reveal h1 {
+      font-size: var(--font-h1);
+      font-weight: bold;
+    }
+
+    .reveal h2 {
+      font-size: var(--font-h2);
+      font-weight: bold;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      text-align: left;
+    }
+
+    .reveal h3 {
+      font-size: var(--font-h3);
+      font-weight: bold;
+    }
+
+    .reveal h4 {
+      font-size: var(--font-h4);
+      font-weight: 600;
+    }
+
+    .reveal p, .reveal li {
+      color: var(--text-dark);
+      font-size: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .reveal ul, .reveal ol {
+      padding-left: var(--space-lg);
+      margin: var(--space-sm) 0;
+    }
+
+    .reveal li {
+      margin-bottom: var(--space-sm);
+    }
+
+    /* --- Section Labels --- */
+    .reveal .label {
+      font-size: var(--font-label);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: var(--space-xs);
+    }
+
+    .reveal .subtitle {
+      color: var(--text-muted);
+      font-size: 0.8em;
+    }
+
+    .reveal .accent-bar {
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: var(--space-lg) 0;
+    }
+
+    /* =====================================================
+       SLIDE BACKGROUNDS
+       ===================================================== */
+
+    /* --- Title Slide (Dark) --- */
+    .reveal .title-slide {
+      background: var(--primary);
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .reveal .title-slide h1,
+    .reveal .title-slide p {
+      color: var(--text-light);
+    }
+
+    .reveal .title-slide .subtitle {
+      color: var(--text-muted-dark);
+      font-size: 0.75em;
+    }
+
+    .reveal .title-slide .meta {
+      color: rgba(255,255,255,0.6);
+      font-size: var(--font-small);
+    }
+
+    /* --- Dark Slide --- */
+    .reveal .dark-slide {
+      background: var(--primary);
+    }
+
+    .reveal .dark-slide h2 {
+      color: var(--text-light);
+    }
+
+    .reveal .dark-slide h3,
+    .reveal .dark-slide h4 {
+      color: var(--text-light);
+    }
+
+    .reveal .dark-slide p,
+    .reveal .dark-slide li {
+      color: var(--text-light);
+    }
+
+    .reveal .dark-slide .label {
+      color: var(--text-muted-dark);
+    }
+
+    .reveal .dark-slide .accent {
+      color: var(--accent);
+    }
+
+    /* =====================================================
+       LAYOUT COMPONENTS
+       ===================================================== */
+
+    /* --- Columns --- */
+    .reveal .columns {
+      display: flex;
+      gap: var(--space-xl);
+      text-align: left;
+    }
+
+    .reveal .column {
+      flex: 1;
+    }
+
+    /* =====================================================
+       BOX STYLES
+       ===================================================== */
+
+    /* --- Card (Light background with accent border) --- */
+    .reveal .card {
+      background: var(--secondary);
+      padding: var(--space-md);
+      border-radius: 8px;
+      margin-bottom: var(--space-md);
+      text-align: left;
+      border-left: 4px solid var(--accent);
+    }
+
+    .reveal .card.border-top {
+      border-left: none;
+      border-top: 4px solid var(--accent);
+    }
+
+    .reveal .card h4 {
+      color: var(--text-dark);
+      margin: 0 0 var(--space-sm) 0;
+      font-size: var(--font-h4);
+    }
+
+    .reveal .card p {
+      margin: 0;
+      font-size: var(--font-body);
+      color: var(--text-muted);
+    }
+
+    /* Card on dark slides */
+    .reveal .dark-slide .card {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .reveal .dark-slide .card h4 {
+      color: var(--accent);
+    }
+
+    .reveal .dark-slide .card p {
+      color: var(--text-muted-dark);
+    }
+
+    /* --- Highlight Box (Dark background) --- */
+    .reveal .highlight-box {
+      background: var(--primary);
+      color: var(--text-light);
+      padding: var(--space-md);
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .reveal .highlight-box h4 {
+      color: var(--accent);
+      margin: 0 0 var(--space-sm) 0;
+      font-size: var(--font-h4);
+    }
+
+    .reveal .highlight-box p {
+      color: var(--text-light);
+      margin: var(--space-xs) 0;
+      font-size: var(--font-body);
+    }
+
+    /* Highlight box on dark slides (inverted) */
+    .reveal .dark-slide .highlight-box {
+      background: var(--secondary);
+    }
+
+    .reveal .dark-slide .highlight-box h4 {
+      color: var(--text-dark);
+    }
+
+    .reveal .dark-slide .highlight-box p {
+      color: var(--text-muted);
+    }
+
+    /* --- Stat Box --- */
+    .reveal .stat-box {
+      background: rgba(255,255,255,0.1);
+      padding: var(--space-md);
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .reveal .stat-box .number {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .reveal .stat-box .label {
+      font-size: var(--font-small);
+      color: var(--text-muted-dark);
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    /* Stat box on light slides */
+    .reveal section:not(.dark-slide) .stat-box {
+      background: var(--secondary);
+    }
+
+    .reveal section:not(.dark-slide) .stat-box .label {
+      color: var(--text-muted);
+    }
+
+    /* --- Pain Point Box --- */
+    .reveal .pain-point {
+      background: var(--secondary);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 4px;
+      border-left: 3px solid #c75050;
+      margin-bottom: var(--space-sm);
+      text-align: left;
+      font-size: var(--font-body);
+    }
+
+    /* =====================================================
+       BADGE STYLES
+       ===================================================== */
+
+    /* --- Primary Badge --- */
+    .reveal .badge,
+    .reveal .phase-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: var(--font-small);
+      font-weight: bold;
+      white-space: nowrap;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    /* --- Secondary Badge --- */
+    .reveal .badge-secondary,
+    .reveal .phase-badge.secondary {
+      background: var(--secondary);
+      color: var(--text-dark);
+    }
+
+    /* --- Accent Badge --- */
+    .reveal .badge-accent {
+      background: var(--accent);
+      color: var(--text-dark);
+    }
+
+    /* --- Rate Box --- */
+    .reveal .rate-box {
+      padding: var(--space-md);
+      border-radius: 8px;
+      text-align: left;
+      margin-bottom: var(--space-sm);
+    }
+
+    .reveal .rate-box.muted {
+      background: var(--secondary);
+    }
+
+    .reveal .rate-box.primary {
+      background: var(--primary);
+    }
+
+    .reveal .rate-box .rate {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .reveal .rate-box.muted .rate {
+      color: var(--text-muted);
+    }
+
+    .reveal .rate-box.primary .rate {
+      color: var(--text-light);
+    }
+
+    .reveal .rate-box.primary p {
+      color: var(--accent);
+    }
+
+    /* =====================================================
+       TIMELINE STYLES
+       ===================================================== */
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      margin-left: 80px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-md);
+      padding-left: 20px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-badge {
+      position: absolute;
+      right: calc(100% + 28px);
+      top: 0;
+      display: inline-block;
+      min-width: 70px;
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.38em;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .timeline-badge.secondary {
+      background: var(--secondary);
+      color: var(--text-dark);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      z-index: 1;
+    }
+
+    .timeline-content h4 {
+      margin: 0 0 var(--space-xs) 0;
+      font-size: var(--font-body);
+      color: var(--text-dark);
+    }
+
+    .timeline-content p {
+      margin: 0;
+      font-size: var(--font-small);
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* =====================================================
+       STEP/PHASE STYLES
+       ===================================================== */
+
+    .reveal .phase {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      margin-bottom: var(--space-sm);
+      text-align: left;
+    }
+
+    .reveal .step {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      margin-bottom: var(--space-sm);
+      text-align: left;
+    }
+
+    .reveal .step-number {
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      color: var(--text-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+      font-size: var(--font-body);
+    }
+
+    /* =====================================================
+       TERMS COLUMNS
+       ===================================================== */
+
+    .reveal .terms-column {
+      background: var(--secondary);
+      padding: var(--space-md);
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .reveal .terms-column.primary {
+      background: var(--primary);
+    }
+
+    .reveal .terms-column h4 {
+      color: var(--text-dark);
+      margin: 0 0 var(--space-sm) 0;
+      padding-bottom: var(--space-xs);
+      border-bottom: 2px solid var(--accent);
+      font-size: var(--font-h4);
+    }
+
+    .reveal .terms-column.primary h4 {
+      color: var(--text-light);
+    }
+
+    .reveal .terms-column li {
+      margin-bottom: var(--space-sm);
+      font-size: var(--font-body);
+    }
+
+    .reveal .terms-column.primary li {
+      color: var(--text-muted-dark);
+    }
+    
+    /* =====================================================
+       CONTRACT SLIDE STYLES
+       ===================================================== */
+
+    .reveal .contract-slide {
+      text-align: left;
+    }
+
+    .reveal .contract-slide h2 {
+      font-size: var(--font-h2);
+    }
+
+    .reveal .contract-slide h3 {
+      font-size: var(--font-h3);
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-xs);
+      color: var(--text-dark);
+    }
+
+    .reveal .contract-slide p {
+      font-size: var(--font-body);
+      margin: var(--space-sm) 0;
+    }
+
+    .reveal .contract-slide ol {
+      font-size: var(--font-body);
+      margin: var(--space-sm) 0;
+      padding-left: var(--space-lg);
+    }
+
+    .reveal .contract-slide li {
+      font-size: 1em;
+      margin-bottom: var(--space-xs);
+    }
+
+    .reveal .editable-note {
+      background: #fff3cd;
+      border-left: 4px solid var(--accent);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      font-size: var(--font-body);
+      color: #856404;
+    }
+
+    /* =====================================================
+       MODAL STYLES
+       ===================================================== */
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.active {
+      display: block;
+    }
+
+    .modal-content {
+      max-width: 800px;
+      margin: var(--space-xl) auto;
+      background: white;
+      border-radius: 8px;
+      padding: var(--space-xl);
+      position: relative;
+    }
+
+    .modal-close {
+      position: fixed;
+      top: var(--space-lg);
+      right: 30px;
+      background: var(--accent);
+      color: var(--text-dark);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+
+    .modal-close:hover {
+      opacity: 0.9;
+      background: white;
+    }
+
+    .modal-content h2 {
+      color: var(--text-dark);
+      font-family: Georgia, serif;
+      font-size: 1.4em;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: var(--space-sm);
+      margin-top: 30px;
+    }
+
+    .modal-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .modal-content h3 {
+      color: var(--primary);
+      font-family: Georgia, serif;
+      font-size: 1em;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+
+    .modal-content p {
+      color: #333;
+      font-size: 0.95em;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .modal-content ol, .modal-content ul {
+      color: #333;
+      font-size: 0.95em;
+      line-height: 1.6;
+      padding-left: 24px;
+    }
+
+    .modal-content li {
+      margin-bottom: 6px;
+    }
+
+    .modal-note {
+      background: #fff3cd;
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      margin: 20px 0;
+      color: #856404;
+    }
+
+    .modal-signatures {
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .modal-signatures > div {
+      flex: 1;
+    }
+
+    .modal-signatures p {
+      margin: 8px 0;
+    }
+
+    /* =====================================================
+       BUTTON STYLES
+       ===================================================== */
+
+    /* Base button style */
+    .button,
+    .btn-contract,
+    .btn-demo,
+    .btn-idea,
+    .vote-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--text-dark);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: var(--font-body);
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+
+    .button:hover,
+    .btn-contract:hover,
+    .btn-demo:hover,
+    .btn-idea:hover,
+    .vote-btn:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    /* Secondary button style */
+    .btn-contract {
+      background: var(--secondary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-contract:hover {
+      background: var(--primary);
+      color: var(--text-light);
+      opacity: 1;
+    }
+
+    /* Smaller button variants */
+    .btn-demo,
+    .btn-idea {
+      padding: var(--space-sm) 16px;
+      font-size: var(--font-small);
+    }
+
+    /* =====================================================
+       VOTING SECTION
+       ===================================================== */
+
+    .vote-section {
+      background: var(--secondary);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      border-top: 4px solid var(--accent);
+    }
+
+    .vote-section h3 {
+      font-family: Georgia, serif;
+      color: var(--text-dark);
+      font-size: 1.4em;
+      margin: 0 0 var(--space-sm) 0;
+    }
+
+    .vote-section p {
+      color: var(--text-muted);
+      font-size: 0.95em;
+      margin: 0 0 24px 0;
+    }
+
+    .vote-btn {
+      padding: 14px 32px;
+      font-size: 1.1em;
+      border-radius: 8px;
+    }
+
+    .vote-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .vote-btn:disabled {
+      background: var(--primary);
+      color: var(--text-light);
+      cursor: default;
+      opacity: 1;
+    }
+
+    .vote-count {
+      margin-top: var(--space-lg);
+      font-size: 1em;
+      color: var(--text-dark);
+    }
+
+    .vote-count strong {
+      color: var(--accent);
+      font-size: 1.2em;
+    }
+
+    /* =====================================================
+       DEMO MODAL
+       ===================================================== */
+
+    .demo-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+    }
+
+    .demo-modal.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .demo-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) 24px;
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    .demo-modal-header h3 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 1.1em;
+      color: var(--text-light);
+    }
+
+    .demo-modal-close {
+      background: var(--accent);
+      color: var(--text-dark);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+
+    .demo-modal-close:hover {
+      opacity: 0.9;
+    }
+
+    .demo-modal-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+    }
+
+    .demo-modal-body iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: 100%;
+      max-height: 80vh;
+      border: none;
+      border-radius: 8px;
+      background: white;
+    }
+
+    .demo-placeholder {
+      background: var(--secondary);
+      border-radius: 8px;
+      padding: 60px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .demo-placeholder h4 {
+      color: var(--text-dark);
+      font-family: Georgia, serif;
+      margin: 0 0 var(--space-md) 0;
+    }
+
+    .demo-placeholder p {
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .btn-demo {
+      margin-top: var(--space-sm);
+    }
+
+    /* =====================================================
+       TOOL CARD
+       ===================================================== */
+
+    .tool-card {
+      background: var(--secondary);
+      padding: var(--space-md);
+      border-radius: 8px;
+      border-top: 4px solid var(--accent);
+      margin-bottom: var(--space-sm);
+      text-align: left;
+    }
+
+    .tool-card h4 {
+      color: var(--text-dark);
+      margin: 0 0 var(--space-xs) 0;
+      font-size: var(--font-h4);
+    }
+
+    .tool-card p {
+      margin: 0;
+      font-size: var(--font-body);
+      color: var(--text-muted);
+    }
+
+    /* =====================================================
+       IDEA SUBMISSION
+       ===================================================== */
+
+    .idea-cta {
+      background: var(--secondary);
+      border: 2px dashed var(--accent);
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: center;
+      margin-top: var(--space-md);
+    }
+
+    .idea-cta p {
+      color: var(--text-dark);
+      font-size: var(--font-small);
+      margin: 0 0 var(--space-sm) 0;
+    }
+
+    /* =====================================================
+       EXAMPLE LIST
+       ===================================================== */
+
+    .example-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .example-list li {
+      background: var(--secondary);
+      padding: var(--space-sm) var(--space-md);
+      margin-bottom: var(--space-xs);
+      border-radius: 4px;
+      border-left: 3px solid var(--accent);
+      font-size: var(--font-body);
+    }
+
+    .example-list li.more {
+      background: transparent;
+      border-left: 3px solid var(--text-muted);
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* =====================================================
+       IDEA MODAL
+       ===================================================== */
+
+    .idea-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .idea-modal.active {
+      display: flex;
+    }
+
+    .idea-modal-content {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .idea-modal-content h3 {
+      color: var(--text-dark);
+      font-family: Georgia, serif;
+      margin: 0 0 var(--space-sm) 0;
+    }
+
+    .idea-modal-content p {
+      color: var(--text-muted);
+      font-size: 0.9em;
+      margin: 0 0 var(--space-lg) 0;
+    }
+
+    .idea-modal-content textarea {
+      width: 100%;
+      height: 120px;
+      padding: var(--space-md);
+      border: 2px solid var(--secondary);
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95em;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    .idea-modal-content textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .idea-modal-buttons {
+      margin-top: var(--space-md);
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+    }
+
+    .idea-modal-buttons button {
+      padding: var(--space-sm) 24px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-submit-idea {
+      background: var(--accent);
+      color: var(--text-dark);
+    }
+
+    .btn-submit-idea:hover {
+      opacity: 0.9;
+    }
+
+    .btn-cancel-idea {
+      background: var(--secondary);
+      color: var(--text-dark);
+    }
+
+    .btn-cancel-idea:hover {
+      opacity: 0.8;
+    }
+
+    /* =====================================================
+       RESPONSIVE STYLES
+       ===================================================== */
+
+    @media screen and (max-width: 768px) {
+      .reveal .columns {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .modal-content {
+        margin: 15px;
+        padding: 20px;
+      }
+
+      .idea-modal-content {
+        padding: 20px;
+        width: calc(100% - 30px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      
+      <!-- Slide 1: Title -->
+      <section class="title-slide">
+        <h1>Local 478 Digital Services Pilot</h1>
+        <p class="subtitle">A Proposal for Digital Tools That Reduce Friction for Members, Officers, and Staff</p>
+        <div class="accent-bar" style="background: var(--accent); margin: 20px auto;"></div>
+        <p class="meta">IATSE Local 478 • Executive Board Proposal • January 2025</p>
+        <p class="meta" style="margin-top: 15px;">Prepared by Connor Sullivan<br>IATSE 478 Executive Board Member At Large</p>
+      </section>
+
+      <!-- Slide 2: Mission & Scope -->
+      <section>
+        <h2>What This Proposal Is About</h2>
+        <div class="card border-top" style="margin-bottom: 12px;">
+          <p style="margin: 0;">This proposal requests board approval for a pilot program to build simple, focused digital tools that make it easier for members to access their benefits and for officers to serve them.</p>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <h4>The Pilot Will:</h4>
+            <ul>
+              <li>Deploy tools that are already built and ready to use</li>
+              <li>Develop additional tools based on member and officer needs</li>
+              <li>Report back to the board with results and a recommendation</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h4>What This Is Not:</h4>
+            <ul>
+              <li>Not a request for a large budget — pilot is capped at $500</li>
+              <li>Not a commitment to a long-term program — board decides after pilot</li>
+              <li>Not replacing staff or officers — tools support their work, not replace it</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: var(--space-md); text-align: center;">
+          <p style="margin: 0;"><strong style="color: var(--accent);">Timeline:</strong> January–February 2025, with board review at the end of the pilot period.</p>
+        </div>
+      </section>
+
+      <!-- Slide 3: What's at Stake -->
+      <section>
+        <h2>What's at Stake</h2>
+        <div class="columns">
+          <div class="column">
+            <p class="label">For Members</p>
+            <h4>Experience shapes perception.</h4>
+            <p>When benefits feel like a hassle, it erodes confidence in membership. A member who gives up on a claim learns the union makes life harder, not easier.</p>
+            <ul style="color: var(--text-muted);">
+              <li>Members leave money on the table</li>
+              <li>Frustration with paperwork becomes frustration with the union</li>
+            </ul>
+          </div>
+          <div class="column">
+            <p class="label">For Officers & Staff</p>
+            <h4>Busywork crowds out strategy.</h4>
+            <p>Every hour chasing documents is an hour not spent on organizing, contracts, or building power. We become reactive instead of proactive.</p>
+            <ul style="color: var(--text-muted);">
+              <li>Officers burn hours on tasks that could be streamlined</li>
+              <li>Less time for outreach and planning</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight-box" style="text-align: center;">
+          <p style="margin: 0;"><strong style="color: var(--accent);">This pilot is about reclaiming time</strong> — for members to get what they've earned, and for officers to build our future.</p>
+        </div>
+      </section>
+
+      <!-- Slide 4: The Opportunity -->
+      <section class="dark-slide">
+        <h2>The Opportunity</h2>
+        <div class="columns">
+          <div class="column">
+            <div class="card border-top">
+              <h4>What We're Building</h4>
+              <ul>
+                <li>Simple web apps that solve specific problems, not complex software systems.</li>
+                <li>Focused tools that do one thing well and are accessible from any device.</li>
+                <li>Tools that empower officers and staff rather than replacing them.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="highlight-box">
+              <h4>This Isn't About Reinventing How We Operate</h4>
+              <p>This is surgical process improvement at specific friction points where members and staff lose time.</p>
+              <p style="margin-top: var(--space-sm);">Small, targeted fixes create outsized impact on member experience and officer workload.</p>
+            </div>
+            <div class="card" style="margin-top: var(--space-md);">
+              <p style="font-style: italic;">"Accessing what members have earned should feel simple and dignified."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Proof of Concept -->
+      <section>
+        <h2>Proof of Concept <span class="badge-accent" style="font-size: 0.5em; vertical-align: middle; margin-left: 10px;">Already Built</span></h2>
+        <p>The MRP Claimer helps members draft, combine receipts, and submit claims to receive copay reimbursement.</p>
+        <div class="columns">
+          <div class="column">
+            <p class="label">Before</p>
+            <div class="pain-point">
+              Print the form, fill by hand, scan it back. Tedious enough that some members didn't bother.
+            </div>
+            <p class="label">After</p>
+            <div class="card border-top">
+              <p>One web form, attach receipts, submit. Save your profile to skip repetitive entry next time.</p>
+            </div>
+          </div>
+          <div class="column" style="display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+              <div style="width: 80px; height: 80px; background: var(--primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md);">
+                <span style="font-size: 2.5em;">📋</span>
+              </div>
+              <button class="btn-demo" onclick="openDemo()">Try the Demo</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Slide 6: The Investment -->
+      <section>
+        <h2>The Investment</h2>
+        <div class="columns">
+          <div class="column">
+            <p class="label">Pilot Budget</p>
+            <div class="rate-box primary">
+              <p class="rate">Up to $500</p>
+              <p style="font-size: 0.7em;">Billed at $39.28/hr (E-Board stipend rate)</p>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--accent);">
+              <p style="font-size: 1.1em; font-weight: bold; color: var(--primary);">60–75% below market</p>
+              <p>Developers charge $100–175/hr for this work.</p>
+            </div>
+          </div>
+          <div class="column">
+            <p class="label">For Comparison</p>
+            <div class="card">
+              <h4>Off-the-Shelf Union Software</h4>
+              <p>UnionTrack, UnionWare: $2–5 per member/month. For 1,200 members, that's $29K–72K/year plus fees.</p>
+            </div>
+            <div style="background: var(--accent); padding: 12px; border-radius: 8px;">
+              <p style="margin: 0; font-weight: bold; color: var(--primary);">This approach: no recurring vendor fees.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Why Now? Why This Rate? -->
+      <section class="dark-slide">
+        <h2>Why Now? Why This Rate?</h2>
+        <div class="columns">
+          <div class="column">
+            <div class="card border-top">
+              <h4>What Changed</h4>
+              <p>AI-assisted coding tools have exploded in the last six months. The cost and time to build useful software has dropped dramatically.</p>
+            </div>
+            <div class="highlight-box">
+              <p><strong style="color: var(--accent);">Before:</strong> Custom tools required developers at $100–175/hr.</p>
+              <p style="margin-top: var(--space-xs);"><strong style="color: var(--accent);">Now:</strong> Same tools, built with modern AI-assisted development.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <h4>Why the Rate Is Low</h4>
+              <p>I've spent months learning these tools — not to become a developer, but to leverage them for our local. The rate reflects that I'm a member investing in our capacity, not a contractor billing market rates.</p>
+            </div>
+            <div class="card">
+              <h4>Applying This To:</h4>
+              <ul>
+                <li><strong>Member services</strong> — simpler benefits access</li>
+                <li><strong>Admin efficiency</strong> — less officer busywork</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8: Proposed Scope -->
+      <section>
+        <h2>What Else Could We Build?</h2>
+        <p style="color: var(--muted);">The pilot isn't limited to MRP claims. Here are some possibilities:</p>
+        <div class="columns">
+          <div class="column">
+            <p class="label">Ideas Under Consideration</p>
+            <ul class="example-list">
+              <li><strong>Timecard helper</strong> — guided walkthrough</li>
+              <li><strong>Pay stub tool</strong> — understand deductions</li>
+              <li><strong>Online dues payment</strong></li>
+              <li><strong>Digital membership card</strong></li>
+              <li class="more">More based on feedback...</li>
+            </ul>
+          </div>
+          <div class="column">
+            <div class="highlight-box">
+              <h4>Member-Driven</h4>
+              <p>These are examples, not promises. What gets built depends on actual needs. As a leader in our union, you have valuable input on these priorities.</p>
+            </div>
+            <div class="idea-cta">
+              <p><strong>Have an idea? Share it!</strong></p>
+              <button class="btn-idea" onclick="openIdeaModal()">Submit →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Slide 9: Pilot Timeline -->
+      <section>
+        <h2>Pilot Timeline</h2>
+        <div class="columns">
+          <div class="column" style="flex: 1.4;">
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="timeline-badge">JAN 22</span>
+                <div class="timeline-content">
+                  <h4>Pilot Begins</h4>
+                  <p>Deploy the MRP Claimer tool, begin collecting member feedback, and start scoping the next tool based on input.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-badge">FEB</span>
+                <div class="timeline-content">
+                  <h4>Build + Report</h4>
+                  <p>Develop the next priority tool. Track usage metrics and gather feedback on MRP Claimer.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-badge">FEB / MAR</span>
+                <div class="timeline-content">
+                  <h4>Board Review</h4>
+                  <p>Present results: what was built, how it's being used, and what members are saying. Bring a proposal for next steps.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-badge secondary">DECISION</span>
+                <div class="timeline-content">
+                  <h4>Expand or Stop</h4>
+                  <p>Board decides whether to continue, expand, or end the pilot based on demonstrated value.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="highlight-box">
+              <h4 style="font-size: 0.58em;">Pilot Deliverables</h4>
+              <ol style="padding-left: 18px; margin: 6px 0 0 0;">
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 5px;">Deploy the MRP Claimer tool to membership</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 5px;">Create a prioritized list of next tools to build (based on officer/member input)</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 5px;">Build and launch the next tool on that list</li>
+                <li style="color: rgba(255,255,255,0.9); font-size: 0.48em;">Prepare a proposal for the board on continuing or expanding the program</li>
+              </ol>
+            </div>
+            <div class="card" style="border-top: none; margin-top: 10px;">
+              <h4>Pilot Cost</h4>
+              <p>Up to <strong>$500</strong> total (approximately 12 hours at $39.28/hour).</p>
+              <p style="margin-top: 4px;">Budget covers deployment, development, and training.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10: IP Terms -->
+      <section>
+        <h2>Ownership & Licensing</h2>
+        <p style="color: var(--muted);">In exchange for the reduced rate, I retain IP ownership. Here's what that means:</p>
+        <div class="columns">
+          <div class="column">
+            <div class="terms-column primary">
+              <h4>What Local 478 Gets</h4>
+              <ul>
+                <li><strong>Perpetual, royalty-free license</strong> to use, modify, and maintain the software.</li>
+                <li>License is <strong>irrevocable</strong> regardless of my board status.</li>
+                <li><strong>15% of licensing revenue</strong> if sold to other locals.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="terms-column">
+              <h4>What I Retain</h4>
+              <ul>
+                <li><strong>Ownership</strong> of IP and source code.</li>
+                <li><strong>Right to license</strong> to other IATSE locals or orgs.</li>
+                <li><strong>85% of licensing revenue</strong> from third parties.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button class="btn-contract" onclick="openContract()">Review Draft Agreement</button>
+      </section>
+
+      <!-- Slide 11: The Bigger Picture -->
+      <section class="dark-slide">
+        <h2 style="color: white; border-bottom-color: var(--accent);">Where This Could Go</h2>
+        <div class="columns">
+          <div class="column">
+            <h3 class="accent" style="text-align: left; font-size: 0.7em;">Small tools today → unified platform tomorrow</h3>
+            <p style="text-align: left; font-size: 0.5em;">Each tool we build becomes a module. Over time, these modules connect into something larger:</p>
+            <ul style="text-align: left; padding-left: 20px; margin: 8px 0;">
+              <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 4px;">MRP Claimer → becomes the <strong>benefits section</strong></li>
+              <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 4px;">Timecard helper → becomes the <strong>work tracking section</strong></li>
+              <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 4px;">Dues payment → becomes the <strong>membership section</strong></li>
+            </ul>
+            <p style="text-align: left; font-size: 0.5em;">The pilot lets us build incrementally, proving value at each step, while working toward a comprehensive member services application.</p>
+          </div>
+          <div class="column">
+            <h3 class="accent" style="text-align: left; font-size: 0.7em;">Built for Local 478. Useful beyond.</h3>
+            <p style="text-align: left; font-size: 0.5em;">Every member who works under the Area Standards Agreement or Low Budget agreements faces similar friction points.</p>
+            <p style="text-align: left; font-size: 0.5em;">If what we build works for Local 478, it could eventually help:</p>
+            <ul style="text-align: left; padding-left: 20px; margin: 8px 0;">
+              <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 4px;">Other ASA locals across the country</li>
+              <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 4px;">Members traveling between jurisdictions</li>
+              <li style="color: rgba(255,255,255,0.9); font-size: 0.48em; margin-bottom: 4px;">Any local dealing with the same paperwork headaches</li>
+            </ul>
+            <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 6px; border-left: 3px solid var(--accent); margin-top: 10px;">
+              <p style="margin: 0; color: rgba(255,255,255,0.9); font-size: 0.48em;">This is a pilot — we're not promising a national platform. But what we build doesn't have to stay siloed. If it works, it could scale.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Slide 12: Next Steps -->
+      <section>
+        <h2>Next Steps</h2>
+        <div class="columns">
+          <div class="column">
+            <div class="step">
+              <span class="step-number">1</span>
+              <div>
+                <p style="margin: 0; font-weight: bold;">Board Discussion</p>
+                <p style="margin: 4px 0 0 0; font-size: 0.6em; color: var(--muted);">Review this proposal and ask any questions. I'm happy to negotiate terms if needed.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number" style="background: var(--secondary); color: var(--primary);">2</span>
+              <div>
+                <p style="margin: 0; font-weight: bold;">Approve Pilot</p>
+                <p style="margin: 4px 0 0 0; font-size: 0.6em; color: var(--muted);">If the board approves, we formalize the agreement with a $500 cap. No further commitment is required.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-number" style="background: var(--secondary); color: var(--primary);">3</span>
+              <div>
+                <p style="margin: 0; font-weight: bold;">Deploy & Train</p>
+                <p style="margin: 4px 0 0 0; font-size: 0.6em; color: var(--muted);">I roll out the existing tools, train officers, and start gathering member feedback.</p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="highlight-box">
+              <h4 style="font-size: 0.7em;">Summary of the Ask</h4>
+              <p><strong>Role:</strong> Part-time Digital Services Coordinator (10 hrs/week)</p>
+              <p><strong>Rate:</strong> $39.28 per hour, based on the E-Board stipend for services</p>
+              <p><strong>Pilot:</strong> Up to $500 total to deploy the tools I've already built</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 13: Questions (Final Slide) -->
+      <section class="dark-slide">
+        <h2>Questions?</h2>
+        <p style="font-size: 0.7em; color: var(--text-muted-dark);">I'm happy to discuss scope, terms, or anything else about this proposal.</p>
+        <p style="font-size: 0.65em; margin-top: 15px;"><a href="mailto:connorjohnsullivan@gmail.com" style="color: var(--accent);">connorjohnsullivan@gmail.com</a></p>
+        <div class="accent-bar" style="margin: 30px auto;"></div>
+        <p style="font-size: 0.55em; color: var(--text-muted-dark); margin-top: 30px;">Navigate: Use arrow keys or swipe to move between slides. Press ESC for an overview of all slides.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Voting Section -->
+  <div class="vote-section">
+    <h3>Ready to move forward?</h3>
+    <p>If you support this pilot program, register your support below.</p>
+    <button id="voteBtn" class="vote-btn" onclick="castVote()">Support This Proposal</button>
+    <div id="voteCount" class="vote-count"></div>
+  </div>
+
+  <!-- Contract Modal -->
+  <div id="contractModal" class="modal-overlay">
+    <button class="modal-close" onclick="closeContract()">&times;</button>
+    <div class="modal-content">
+      <div class="modal-note">
+        <strong>Note:</strong> This is a draft agreement for board review. All terms are negotiable.
+      </div>
+
+      <h2>Section 1 — Scope of Work</h2>
+      <h3>1.1 Position</h3>
+      <p>Part-time Digital Services Coordinator (10 hours/week), focused on digital process improvements that reduce friction for members accessing benefits and officers handling administrative tasks.</p>
+      <h3>1.2 Services</h3>
+      <p>Coordinator agrees to design, develop, deploy, and document member-facing and officer-facing tools, including but not limited to:</p>
+      <ol type="a">
+        <li>Benefits application assistants (insurance claims, MRP submissions)</li>
+        <li>Member training guides and documentation</li>
+        <li>Officer workflow improvements (auditing, admin tasks)</li>
+        <li>Process documentation ensuring sustainability</li>
+      </ol>
+      <h3>1.3 Standards</h3>
+      <p>All improvements shall be documented, trainable, and sustainable — not dependent on any single individual.</p>
+
+      <h2>Section 2 — Compensation</h2>
+      <h3>2.1 Rate</h3>
+      <p>Local 478 shall compensate Coordinator at the rate of <strong>Thirty-Nine Dollars and Twenty-Eight Cents ($39.28) per hour</strong>. This rate is derived from the Executive Board stipend for services rendered to the Local, as stipulated by the E-Board member position.</p>
+      <h3>2.2 Pilot Program</h3>
+      <p>The initial pilot engagement shall not exceed <strong>Five Hundred Dollars ($500.00)</strong> total, representing approximately twelve (12) hours of work. Expansion beyond the pilot requires Board approval.</p>
+      <h3>2.3 Payment Terms</h3>
+      <p>Coordinator shall submit invoices monthly with itemized hours and work performed. Payment shall be due within thirty (30) days of invoice receipt.</p>
+      <h3>2.4 Expense Reimbursement</h3>
+      <p>Reasonable expenses directly related to the project (hosting, domain registration, required third-party services) shall be reimbursed upon approval by the designated officer.</p>
+
+      <h2>Section 3 — Intellectual Property</h2>
+      <h3>3.1 Ownership</h3>
+      <p>Coordinator shall retain ownership of all intellectual property, source code, and underlying architecture developed under this agreement.</p>
+      <h3>3.2 License to Local 478</h3>
+      <p>Local 478 shall receive a <strong>perpetual, royalty-free, non-exclusive license</strong> to use, modify, and maintain the software for its own internal operations. This license is <strong>irrevocable</strong> and survives any termination of Coordinator's board service or membership in Local 478.</p>
+      <h3>3.3 Third-Party Licensing</h3>
+      <p>In the event the software, or any derivative works, is licensed to other IATSE locals, labor organizations, or third parties, Local 478 shall receive <strong>fifteen percent (15%) of net licensing revenue</strong>, paid quarterly.</p>
+      <h3>3.4 Definition of Net Licensing Revenue</h3>
+      <p>"Net licensing revenue" means gross licensing fees received, less: (a) payment processing fees, (b) hosting and infrastructure costs directly attributable to licensed instances, and (c) third-party support costs if applicable.</p>
+
+      <h2>Section 4 — Project Governance</h2>
+      <h3>4.1 Phased Development</h3>
+      <p>Work shall proceed in phases as outlined in the proposal. Expansion to subsequent phases requires approval by the Executive Board.</p>
+      <h3>4.2 Reporting</h3>
+      <p>Coordinator shall provide regular progress updates to the Executive Board at intervals to be determined (suggested: monthly or at regular board meetings).</p>
+      <h3>4.3 Termination</h3>
+      <p>Either party may terminate this agreement with thirty (30) days written notice. Upon termination:</p>
+      <ol type="a">
+        <li>Local 478 retains its perpetual license to all work completed to date</li>
+        <li>Coordinator retains ownership of all intellectual property</li>
+        <li>Outstanding compensation for work performed shall be paid within thirty (30) days</li>
+      </ol>
+
+      <h2>Section 5 — Disclosure & Conflict of Interest</h2>
+      <h3>5.1 Transparency</h3>
+      <p>Coordinator acknowledges their position on the Executive Board and presents these terms openly to ensure full transparency and avoid any appearance of conflict of interest.</p>
+      <h3>5.2 Board Approval</h3>
+      <p>This agreement shall not be effective until approved by vote of the Executive Board, with Coordinator abstaining from said vote.</p>
+      <h3>5.3 Modifications</h3>
+      <p>Any modifications to this agreement must be approved by the Executive Board and documented in writing.</p>
+
+      <h2>Section 6 — Signatures</h2>
+      <p>Agreed and accepted:</p>
+      <div class="modal-signatures">
+        <div>
+          <p><strong>For IATSE Local 478:</strong></p>
+          <p style="margin-top: 30px;">_________________________________</p>
+          <p>Name: ___________________________</p>
+          <p>Title: ____________________________</p>
+          <p>Date: ____________________________</p>
+        </div>
+        <div>
+          <p><strong>Coordinator:</strong></p>
+          <p style="margin-top: 30px;">_________________________________</p>
+          <p>Name: ___________________________</p>
+          <p>Date: ____________________________</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Idea Submission Modal -->
+  <div id="ideaModal" class="idea-modal">
+    <div class="idea-modal-content">
+      <h3>Share Your Idea</h3>
+      <p>What tool would make your life easier as a member or officer? Describe it below.</p>
+      <textarea id="ideaText" placeholder="Example: A tool that helps me track my pension contributions across different productions..."></textarea>
+      <div class="idea-modal-buttons">
+        <button class="btn-cancel-idea" onclick="closeIdeaModal()">Cancel</button>
+        <button class="btn-submit-idea" onclick="submitIdea()">Submit Idea</button>
+      </div>
+      <p id="ideaConfirmation" style="display: none; color: #2e7d32; margin-top: 12px; font-weight: bold;">Thanks! Your idea has been recorded.</p>
+    </div>
+  </div>
+
+  <!-- Demo Modal: Benefits Application Assistant -->
+  <div id="mrpDemo" class="demo-modal">
+    <div class="demo-modal-header">
+      <h3>Benefits Application Assistant</h3>
+      <button class="demo-modal-close" onclick="closeDemo()">&times;</button>
+    </div>
+    <div class="demo-modal-body">
+      <iframe id="mrpIframe" src="" title="Benefits Application Assistant"></iframe>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      backgroundTransition: 'fade',
+      width: 960,
+      height: 700,
+      margin: 0.05,
+      minScale: 0.4,
+      maxScale: 1.2,
+      center: false
+    });
+
+    // Modal functions
+    function openContract() {
+      document.getElementById('contractModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeContract() {
+      document.getElementById('contractModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('contractModal').classList.contains('active')) {
+        closeContract();
+      }
+    });
+
+    // Close modal when clicking outside content
+    document.getElementById('contractModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeContract();
+      }
+    });
+
+    // Demo modal functions
+    const DEMO_URL = 'https://forgonetokens.github.io/MRP_Claimer/';
+
+    function openDemo() {
+      const modal = document.getElementById('mrpDemo');
+      const iframe = document.getElementById('mrpIframe');
+      iframe.src = DEMO_URL;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemo() {
+      const modal = document.getElementById('mrpDemo');
+      const iframe = document.getElementById('mrpIframe');
+      modal.classList.remove('active');
+      iframe.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // Close demo modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (document.getElementById('mrpDemo').classList.contains('active')) {
+          closeDemo();
+        }
+        if (document.getElementById('ideaModal').classList.contains('active')) {
+          closeIdeaModal();
+        }
+      }
+    });
+
+    // Idea submission modal functions
+    function openIdeaModal() {
+      document.getElementById('ideaModal').classList.add('active');
+      document.getElementById('ideaText').value = '';
+      document.getElementById('ideaConfirmation').style.display = 'none';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeIdeaModal() {
+      document.getElementById('ideaModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Google Form configuration
+    // TO SET UP:
+    // 1. Create a Google Form with one text field for the idea
+    // 2. Get the form ID from the URL (the long string after /d/ and before /edit)
+    // 3. Get the entry ID by inspecting the form field (usually starts with "entry.")
+    const GOOGLE_FORM_ID = '1FAIpQLSfyEqwGMm4UzlUxqOdcYI2fVob_bTNuJHxhxX-B0pv8wCboXQ';
+    const GOOGLE_FORM_ENTRY_ID = 'entry.1181861541';
+
+    function submitIdea() {
+      const idea = document.getElementById('ideaText').value.trim();
+      if (!idea) {
+        alert('Please enter your idea before submitting.');
+        return;
+      }
+
+      // Check if Google Form is configured
+      if (GOOGLE_FORM_ID === 'YOUR_FORM_ID_HERE') {
+        // Fallback to localStorage if form not configured
+        const ideas = JSON.parse(localStorage.getItem('mti_ideas') || '[]');
+        ideas.push({ idea: idea, timestamp: new Date().toISOString() });
+        localStorage.setItem('mti_ideas', JSON.stringify(ideas));
+        showIdeaConfirmation();
+        return;
+      }
+
+      // Submit to Google Form
+      const formUrl = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
+      const formData = new FormData();
+      formData.append(GOOGLE_FORM_ENTRY_ID, idea);
+
+      // Use a hidden iframe to submit (avoids CORS issues)
+      const iframe = document.createElement('iframe');
+      iframe.name = 'hidden_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = formUrl;
+      form.target = 'hidden_iframe';
+
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = GOOGLE_FORM_ENTRY_ID;
+      input.value = idea;
+      form.appendChild(input);
+
+      document.body.appendChild(form);
+      form.submit();
+
+      // Clean up
+      setTimeout(() => {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+      }, 1000);
+
+      showIdeaConfirmation();
+    }
+
+    function showIdeaConfirmation() {
+      document.getElementById('ideaText').style.display = 'none';
+      document.querySelector('.idea-modal-buttons').style.display = 'none';
+      document.getElementById('ideaConfirmation').style.display = 'block';
+
+      setTimeout(function() {
+        closeIdeaModal();
+        // Reset for next time
+        document.getElementById('ideaText').style.display = 'block';
+        document.querySelector('.idea-modal-buttons').style.display = 'flex';
+      }, 2000);
+    }
+
+    // Voting functionality
+    const VOTE_KEY = 'mti_proposal_voted';
+    const COUNTER_NAMESPACE = 'iatse478-mti';
+    const COUNTER_KEY = 'proposal-support';
+
+    async function getVoteCount() {
+      try {
+        const res = await fetch(`https://api.countapi.xyz/get/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
+        const data = await res.json();
+        return data.value || 0;
+      } catch (e) {
+        console.log('Counter API unavailable');
+        return 0;
+      }
+    }
+
+    async function incrementVote() {
+      try {
+        const res = await fetch(`https://api.countapi.xyz/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
+        const data = await res.json();
+        return data.value || 1;
+      } catch (e) {
+        console.log('Counter API unavailable');
+        return 1;
+      }
+    }
+
+    function hasVoted() {
+      return localStorage.getItem(VOTE_KEY) === 'true';
+    }
+
+    function updateVoteDisplay(count, voted) {
+      const btn = document.getElementById('voteBtn');
+      const countDisplay = document.getElementById('voteCount');
+
+      if (voted) {
+        btn.textContent = "You've endorsed this proposal";
+        btn.disabled = true;
+      }
+
+      if (count > 0) {
+        const label = count === 1 ? 'board member supports' : 'board members support';
+        countDisplay.innerHTML = `<strong>${count}</strong> ${label} this proposal`;
+      }
+    }
+
+    async function castVote() {
+      if (hasVoted()) return;
+
+      localStorage.setItem(VOTE_KEY, 'true');
+      const newCount = await incrementVote();
+      updateVoteDisplay(newCount, true);
+    }
+
+    // Initialize vote display on page load
+    (async function() {
+      const count = await getVoteCount();
+      updateVoteDisplay(count, hasVoted());
+    })();
+  </script>
+</body>
+</html>
