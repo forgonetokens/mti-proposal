@@ -1069,9 +1069,16 @@
         gap: var(--space-sm);
       }
 
-      /* Slide 2 bullet points larger on mobile */
-      .reveal .slides section:nth-child(2) ul {
+      /* Slide 2, 3, 7 - larger font on mobile */
+      .reveal .slides section:nth-child(2) ul,
+      .reveal .slides section:nth-child(3) ul,
+      .reveal .slides section:nth-child(7) ul {
         font-size: 0.7em !important;
+      }
+
+      .reveal .slides section:nth-child(3) p,
+      .reveal .slides section:nth-child(7) p {
+        font-size: 0.65em !important;
       }
 
       /* Timeline adjustments for mobile */
