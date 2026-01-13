@@ -1071,7 +1071,6 @@
 
       /* Minimum font size on mobile - 0.65em baseline */
       .reveal .slides section p,
-      .reveal .slides section li,
       .reveal .slides section .card p,
       .reveal .slides section .highlight-box p,
       .reveal .slides section .pain-point,
@@ -1079,14 +1078,19 @@
         font-size: 0.65em !important;
       }
 
+      /* Lists - set on ul/ol only, not li to avoid compounding */
       .reveal .slides section ul,
       .reveal .slides section ol {
-        font-size: 0.65em !important;
+        font-size: 0.7em !important;
+      }
+
+      .reveal .slides section li {
+        font-size: 1em !important;
       }
 
       .reveal .slides section h4,
       .reveal .slides section .timeline-content h4 {
-        font-size: 0.7em !important;
+        font-size: 0.75em !important;
       }
 
       /* Timeline adjustments for mobile */
