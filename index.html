@@ -1051,19 +1051,15 @@
     }
 
     /* =====================================================
-       SLIDE VERTICAL ALIGNMENT
-       ===================================================== */
-
-    /* Shift non-title slides up within the viewport */
-    .reveal .slides section:not(.title-slide) {
-      top: -180px !important;
-    }
-
-    /* =====================================================
        RESPONSIVE STYLES
        ===================================================== */
 
     @media screen and (max-width: 768px) {
+      /* Shift non-title slides up on mobile */
+      .reveal .slides section:not(.title-slide) {
+        top: -180px !important;
+      }
+
       .reveal .columns {
         flex-direction: column;
         gap: var(--space-sm);
