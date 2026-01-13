@@ -1060,6 +1060,66 @@
         gap: var(--space-sm);
       }
 
+      /* Larger text on mobile */
+      .reveal h2 {
+        font-size: 1.3em;
+      }
+
+      .reveal h4 {
+        font-size: 0.85em;
+      }
+
+      .reveal p, .reveal li {
+        font-size: 0.75em;
+        line-height: 1.4;
+      }
+
+      .reveal .label {
+        font-size: 0.6em;
+      }
+
+      /* Timeline adjustments for mobile */
+      .timeline {
+        margin-left: 70px;
+        padding-left: 20px;
+      }
+
+      .timeline-badge {
+        min-width: 60px;
+        font-size: 0.55em;
+        padding: 5px 8px;
+        right: calc(100% + 24px);
+      }
+
+      .timeline-content h4 {
+        font-size: 0.8em;
+      }
+
+      .timeline-content p {
+        font-size: 0.7em;
+      }
+
+      /* Buttons */
+      .btn-demo, .btn-idea, .btn-contract {
+        font-size: 0.75em;
+        padding: 10px 18px;
+      }
+
+      /* Title slide */
+      .reveal .title-slide h1 {
+        font-size: 1.4em;
+      }
+
+      .reveal .title-slide .subtitle {
+        font-size: 0.8em;
+      }
+
+      /* Cards */
+      .reveal .card,
+      .reveal .highlight-box {
+        padding: var(--space-md);
+      }
+
       .modal-content {
         margin: 15px;
         padding: 20px;
@@ -1565,15 +1625,18 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
   <script>
+    // Adjust dimensions for mobile to use more screen space
+    const isMobile = window.innerWidth < 768;
+
     Reveal.initialize({
       hash: true,
       slideNumber: true,
       transition: 'slide',
       backgroundTransition: 'fade',
-      width: 960,
-      height: 700,
-      margin: 0.05,
-      minScale: 0.4,
+      width: isMobile ? 400 : 960,
+      height: isMobile ? 700 : 700,
+      margin: isMobile ? 0.02 : 0.05,
+      minScale: isMobile ? 0.8 : 0.4,
       maxScale: 1.2,
       center: false
     });
